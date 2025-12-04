@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Jumping Image</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background: #fafafa;
+  }
+
+  #jumpImg {
+    position: absolute;
+    width: 200px; /* adjust size */
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.05s;
+  }
+</style>
+</head>
+<body>
+
+<!-- Replace the src value with your own image URL or file -->
+<img id="jumpImg" src="frozen_waffles.png" />
+
+<script>
+  const img = document.getElementById("jumpImg");
+
+  function moveImage() {
+    const maxX = window.innerWidth - img.offsetWidth;
+    const maxY = window.innerHeight - img.offsetHeight;
+
+    const newX = Math.random() * maxX;
+    const newY = Math.random() * maxY;
+
+    img.style.transform = `translate(${newX}px, ${newY}px)`;
+  }
+
+  img.addEventListener("mouseover", moveImage);
+
+  // place randomly on initial load
+  moveImage();
+</script>
+
+</body>
+</html>
